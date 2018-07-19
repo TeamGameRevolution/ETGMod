@@ -117,7 +117,7 @@ namespace Gungeon {
         public virtual new void OnAmmoChanged(PlayerController player, Gun gun) {
         }
 
-        public virtual new Projectile OnPreFireProjectileModifier(Gun gun, Projectile projectile) {
+        public virtual new Projectile OnPreFireProjectileModifier(Gun gun, Projectile projectile, ProjectileModule module) {
             return projectile.EnabledClonedPrefab();
         }
     }

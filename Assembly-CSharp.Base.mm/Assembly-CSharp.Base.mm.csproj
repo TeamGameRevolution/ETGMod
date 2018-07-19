@@ -43,9 +43,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\libs\UnityEngine.dll</HintPath>
-    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\libs\Assembly-CSharp.dll</HintPath>
     </Reference>
@@ -55,6 +52,18 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Security" />
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\libs\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\libs\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\libs\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\libs\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,13 +215,13 @@
     <Compile Include="src\Core\Gun.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UnityEngine.Base.mm\UnityEngine.Base.mm.csproj">
-      <Project>{3C105AF3-D405-4536-B45E-C764D6ED84C7}</Project>
-      <Name>UnityEngine.Base.mm</Name>
-    </ProjectReference>
     <ProjectReference Include="..\libs\YamlDotNet\YamlDotNet\YamlDotNet.csproj">
       <Project>{BF32DE1B-6276-4341-B212-F8862ADBBA7A}</Project>
       <Name>YamlDotNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UnityEngine.Base.mm\UnityEngine.Base.mm.csproj">
+      <Project>{3c105af3-d405-4536-b45e-c764d6ed84c7}</Project>
+      <Name>UnityEngine.Base.mm</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -363,17 +372,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Folder Include="Content\etgmod\gui\" />
-    <Folder Include="src\SGUI\Modifiers\" />
-    <Folder Include="src\Guns\" />
-    <Folder Include="src\ETGGUI\Repo\" />
-    <Folder Include="src\Core\Databases\" />
-    <Folder Include="src\SGUI\Animations\" />
-    <Folder Include="src\Core\Assets\" />
-    <Folder Include="src\API\" />
-    <Folder Include="src\API\Gungeon\" />
-    <Folder Include="src\Core\Extensions\" />
-    <Folder Include="src\API\Gungeon\AnimLoader\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

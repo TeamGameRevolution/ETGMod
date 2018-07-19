@@ -41,7 +41,7 @@ public class GunBehaviour : MonoBehaviour {
     public virtual void OnAmmoChanged(PlayerController player, Gun gun) {
     }
 
-    public virtual Projectile OnPreFireProjectileModifier(Gun gun, Projectile projectile) {
+    public virtual Projectile OnPreFireProjectileModifier(Gun gun, Projectile projectile, ProjectileModule module) {
         return projectile.EnabledClonedPrefab();
     }
 

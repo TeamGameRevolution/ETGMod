@@ -594,7 +594,7 @@ public class ETGModConsole : ETGModMenu {
                 return;
         }
         WeightedGameObject wGameObject = new WeightedGameObject();
-        wGameObject.gameObject = chest.gameObject;
+        wGameObject.SetGameObject(chest.gameObject);
         WeightedGameObjectCollection wGameObjectCollection = new WeightedGameObjectCollection();
         wGameObjectCollection.Add(wGameObject);
         int count = 1;
@@ -821,8 +821,7 @@ public class ETGModConsole : ETGModMenu {
         var db = GameManager.Instance.SynergyManager;
         Console.WriteLine("synergies:");
         foreach (var entry in db.synergies) {
-            Console.WriteLine("  - items_or: " + entry.ItemsOR.ToString().ToLowerInvariant());
-            Console.WriteLine("    guns_or: " + entry.GunsOR.ToString().ToLowerInvariant());
+            
             if (entry.statModifiers.Count == 0) {
                 Console.WriteLine("    stat_mods: [] ");
             } else {
@@ -833,21 +832,49 @@ public class ETGModConsole : ETGModMenu {
                     Console.WriteLine("        amount: " + mod.amount.ToStringInvariant());
                 }
             }
-            if (entry.itemIDs.Count == 0) {
-                Console.WriteLine("    items: []");
+            if (entry.OptionalItemIDs.Count == 0) {
+                Console.WriteLine("    optional_items: []");
             } else {
-                Console.WriteLine("    items:");
-                foreach (var item in entry.itemIDs) {
+                Console.WriteLine("    optional_items:");
+                foreach (var item in entry.OptionalItemIDs) {
                     var pickupobject = PickupObjectDatabase.Instance.InternalGetById(item);
                     Console.WriteLine("      - name: " + pickupobject.EncounterNameOrDisplayName ?? "null");
                     Console.WriteLine("        id: " + item);
                 }
             }
-            if (entry.gunIDs.Count == 0) {
-                Console.WriteLine("    guns: []");
+            if (entry.MandatoryItemIDs.Count == 0)
+            {
+                Console.WriteLine("    mandatory_items: []");
+            }
+            else
+            {
+                Console.WriteLine("    mandatory_items:");
+                foreach (var item in entry.MandatoryItemIDs)
+                {
+                    var pickupobject = PickupObjectDatabase.Instance.InternalGetById(item);
+                    Console.WriteLine("      - name: " + pickupobject.EncounterNameOrDisplayName ?? "null");
+                    Console.WriteLine("        id: " + item);
+                }
+            }
+            if (entry.OptionalGunIDs.Count == 0) {
+                Console.WriteLine("    optional_guns: []");
             } else {
-                Console.WriteLine("    guns:");
-                foreach (var item in entry.gunIDs) {
+                Console.WriteLine("    optional_guns:");
+                foreach (var item in entry.OptionalGunIDs) {
+                    var pickupobject = PickupObjectDatabase.Instance.InternalGetById(item);
+                    Console.WriteLine("      - name: " + pickupobject.EncounterNameOrDisplayName ?? "null");
+                    Console.WriteLine("        id: " + item);
+                }
+            }
+            if (entry.MandatoryGunIDs.Count == 0)
+            {
+                Console.WriteLine("    mandatory_guns: []");
+            }
+            else
+            {
+                Console.WriteLine("    mandatory_guns:");
+                foreach (var item in entry.MandatoryGunIDs)
+                {
                     var pickupobject = PickupObjectDatabase.Instance.InternalGetById(item);
                     Console.WriteLine("      - name: " + pickupobject.EncounterNameOrDisplayName ?? "null");
                     Console.WriteLine("        id: " + item);
